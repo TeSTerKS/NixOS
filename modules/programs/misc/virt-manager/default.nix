@@ -19,8 +19,15 @@
     spice-vdagent
     win-virtio
     win-spice
+    kasmweb
   ];
-
+  # Enable Kasm 
+  # TODO: Проба использования локального сервиса 
+  services.kasmweb = {
+     enable = true;
+     listenPort = 9999;
+   };
+  
   # virtualisation
   virtualisation = {
     libvirtd = {

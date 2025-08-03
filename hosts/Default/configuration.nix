@@ -54,7 +54,11 @@
         # krita
         github-desktop
         # gimp
+        # Обезательно к установке 
+        telegram-desktop
         obsidian
+
+
       ];
     })
   ];
