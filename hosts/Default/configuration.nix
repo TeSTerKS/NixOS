@@ -11,6 +11,7 @@
   imports = [
     ./hardware-configuration.nix
     ../../modules/hardware/video/${videoDriver}.nix # Enable gpu drivers defined in flake.nix
+    #../../modules/hardware/video/nvidia_old.nix # Включение поддержки старых карт NVIDIA
     ../../modules/hardware/drives
 
     ../common.nix

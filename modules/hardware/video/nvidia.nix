@@ -25,17 +25,24 @@ in {
   ];
   hardware = {
     nvidia = {
+      # modesetting.enable = true;
       open = false;
       # nvidiaPersistenced = true;
       nvidiaSettings = true;
       powerManagement.enable = true; # This can cause sleep/suspend to fail.
       modesetting.enable = true;
+      #package = config.boot.kernelPackages.nvidiaPackages.legacy_470;
       package = nvidiaDriverChannel;
       prime = {
-        offload.enable = true;
+  		  offload = {
+  			  enable = true;
+  			  enableOffloadCmd = true;
+  		  };
+
         intelBusId = "PCI:0:2:0";
         nvidiaBusId = "PCI:1:0:0";
       };
+
     };
     graphics = {
       enable = true;
@@ -62,5 +69,18 @@ in {
   nix.settings = {
     substituters = ["https://cuda-maintainers.cachix.org"];
     trusted-public-keys = ["cuda-maintainers.cachix.org-1:0dq3bujKpuEPMCX6U4WylrUDZ9JyUG0VpVZa7CNfq5E="];
+  };
+  specialisation = {
+    nvidia-sync.configuration = {
+      system.nixos.tags = [ "nvidia-sync" ];
+      hardware.nvidia = {
+        powerManagement.finegrained = lib.mkForce false;
+
+        prime.offload.enable = lib.mkForce false;
+        prime.offload.enableOffloadCmd = lib.mkForce false;
+
+        prime.sync.enable = lib.mkForce true;
+      };
+    };
   };
 }

@@ -26,8 +26,20 @@
   services.kasmweb = {
      enable = true;
      listenPort = 9999;
+     defaultAdminPassword = "TesterikS"; # сменить при последующей настройке
    };
   
+  # Enable Docker #Добавлена поддержка докера и пользователя 
+  virtualisation.docker = {
+     enable = true;
+     rootless = {
+       enable = true;
+       setSocketVariable = true;
+       daemon.settings.features.cdi = true;
+     };
+   };
+  users.extraGroups.docker.members = [ "tektus" ];
+
   # virtualisation
   virtualisation = {
     libvirtd = {
