@@ -73,6 +73,7 @@
           git
           gh
           htop
+          micro-full
           libjxl
           microfetch
           nix-prefetch-scripts
@@ -109,8 +110,8 @@
         device = "nodev";
         efiSupport = true;
         useOSProber = true;
-        gfxmodeEfi = "2715x1527"; # for 4k: 3840x2160
-        gfxmodeBios = "2715x1527"; # for 4k: 3840x2160
+        gfxmodeEfi = "1920x1080"; # for 4k: 3840x2160
+        gfxmodeBios = "1920x1080"; # for 4k: 3840x2160
         theme = pkgs.stdenv.mkDerivation {
           pname = "distro-grub-themes";
           version = "3.1";
@@ -146,6 +147,7 @@
     xkb = {
       layout = kbdLayout;
       variant = kbdVariant;
+      options = "grp:alt_shift_toggle";
     };
   };
 
@@ -278,18 +280,18 @@
   # List services that you want to enable:
 
   # Enable the OpenSSH daemon.
-  /*
+  
      services.openssh = {
     enable = true;
     settings = {
       PasswordAuthentication = true;
-      AllowUsers = null; # Allows all users by default. Can be [ "user1" "user2" ]
+      AllowUsers = [ "tektus" ]; # Allows all users by default. Can be [ "user1" "user2" ]
       UseDns = true;
       X11Forwarding = false;
       PermitRootLogin = "prohibit-password"; # "yes", "without-password", "prohibit-password", "forced-commands-only", "no"
     };
   };
-  */
+  
 
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];
@@ -319,7 +321,7 @@
         "https://cachix.cachix.org"
         "https://nix-gaming.cachix.org/"
         "https://hyprland.cachix.org"
-        # "https://nixpkgs-wayland.cachix.org"
+        "https://nixpkgs-wayland.cachix.org"
         # "https://devenv.cachix.org"
       ];
       trusted-public-keys = [
@@ -329,7 +331,7 @@
         "cachix.cachix.org-1:eWNHQldwUO7G2VkjpnjDbWwy4KQ/HNxht7H4SSoMckM="
         "nix-gaming.cachix.org-1:nbjlureqMbRAxR1gJ/f3hxemL9svXaZF/Ees8vCUUs4="
         "hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="
-        # "nixpkgs-wayland.cachix.org-1:3lwxaILxMRkVhehr5StQprHdEo4IrE8sRho9R9HOLYA="
+        "nixpkgs-wayland.cachix.org-1:3lwxaILxMRkVhehr5StQprHdEo4IrE8sRho9R9HOLYA="
         # "devenv.cachix.org-1:w1cLUi8dv3hnoSPGAuibQv+f9TZLr6cv/Hm9XgU50cw="
       ];
       experimental-features = ["nix-command" "flakes"];

@@ -58,7 +58,7 @@
       # System configuration
       videoDriver = "nvidia"; # CHOOSE YOUR GPU DRIVERS (nvidia, amdgpu or intel)
       hostname = "devnoute"; # CHOOSE A HOSTNAME HERE
-      locale = "en_US.UTF-8"; # CHOOSE YOUR LOCALE
+      locale = "ru_RU.UTF-8"; # CHOOSE YOUR LOCALE
       timezone = "Europe/Moscow"; # CHOOSE YOUR TIMEZONE
       kbdLayout = "us,ru"; # CHOOSE YOUR KEYBOARD LAYOUT
       kbdVariant = ""; # CHOOSE YOUR KEYBOARD VARIANT (Can leave empty)
