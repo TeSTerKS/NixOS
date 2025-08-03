@@ -121,7 +121,7 @@
               active-only = false;
               on-click = "activate";
               persistent-workspaces = {
-                "*" = [1 2 3 4 5 6 7 8 9 10];
+                "*" = [ ];
               };
             };
 
@@ -151,9 +151,10 @@
             };
 
             "clock" = {
+              locale = "ru_RU.UTF-8";
               format = "{:%a %d %b %R}";
               # format = "{:%R 󰃭 %d·%m·%y}";
-              format-alt = "{:%I:%M %p}";
+              format-alt = "{:%H:%M}";
               tooltip-format = "<tt>{calendar}</tt>";
               calendar = {
                 mode = "month";
