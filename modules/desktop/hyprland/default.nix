@@ -65,8 +65,8 @@
         wl-clipboard
         xdotool
         yad
-        # socat # for and autowaybar.sh
-        # jq # for and autowaybar.sh
+        socat # for and autowaybar.sh
+        jq # for and autowaybar.sh
       ];
 
       xdg.configFile."hypr/icons" = {
@@ -132,6 +132,7 @@
           input = {
             kb_layout = "${kbdLayout},ru";
             kb_variant = "${kbdVariant},";
+            kb_options = "grp:alt_shift_toggle";
             repeat_delay = 300; # or 212
             repeat_rate = 30;
 
@@ -257,7 +258,7 @@
             # "workspace 6, title:(.*)(Spotify)(.*)$"
 
             # Can use FLOAT FLOAT for active and inactive or just FLOAT
-            "opacity 0.80 0.80,class:^(kitty|alacritty|Alacritty|org.wezfurlong.wezterm)$"
+            "opacity 0.90 0.80,class:^(kitty|alacritty|Alacritty|org.wezfurlong.wezterm)$"
             "opacity 0.90 0.90,class:^(gcr-prompter)$" # keyring prompt
             "opacity 0.90 0.90,title:^(Hyprland Polkit Agent)$" # polkit prompt
             "opacity 1.00 1.00,class:^(firefox)$"

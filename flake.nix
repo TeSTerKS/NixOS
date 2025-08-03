@@ -60,7 +60,7 @@
       hostname = "devnoute"; # CHOOSE A HOSTNAME HERE
       locale = "ru_RU.UTF-8"; # CHOOSE YOUR LOCALE
       timezone = "Europe/Moscow"; # CHOOSE YOUR TIMEZONE
-      kbdLayout = "us,ru"; # CHOOSE YOUR KEYBOARD LAYOUT
+      kbdLayout = "us"; # CHOOSE YOUR KEYBOARD LAYOUT
       kbdVariant = ""; # CHOOSE YOUR KEYBOARD VARIANT (Can leave empty)
       consoleKeymap = "us"; # CHOOSE YOUR CONSOLE KEYMAP (Affects the tty?)
     };

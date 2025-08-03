@@ -16,7 +16,7 @@
           local font_name = "JetBrainsMono Nerd Font"
 
           return {
-            font_size = 12.0,
+            font_size = 11.0,
 
            -- Font config
             font = font_with_fallback(font_name),
