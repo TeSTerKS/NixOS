@@ -14,13 +14,13 @@
         profiles.default = {
           extensions = with pkgs.vscode-extensions; [
             bbenoist.nix
-            # arrterian.nix-env-selector
+            arrterian.nix-env-selector
             eamodio.gitlens
             github.vscode-github-actions
             yzhang.markdown-all-in-one
             catppuccin.catppuccin-vsc
             catppuccin.catppuccin-vsc-icons
-            # asvetliakov.vscode-neovim
+            asvetliakov.vscode-neovim
             # vscodevim.vim
             tamasfe.even-better-toml
             #jnoortheen.nix-ide
@@ -35,7 +35,7 @@
             ms-python.python
             # pkief.material-icon-theme
             # equinusocio.vsc-material-theme
-            # dracula-theme.theme-dracula
+            dracula-theme.theme-dracula
           ];  
           keybindings = [
             {
@@ -50,7 +50,7 @@
           ];
           userSettings = {
             "update.mode" = "none";
-            # "extensions.autoUpdate" = false; # Fixes vscode freaking out when theres an update
+            "extensions.autoUpdate" = true; # Fixes vscode freaking out when theres an update
             "window.titleBarStyle" = "custom"; # needed otherwise vscode crashes, see https://github.com/NixOS/nixpkgs/issues/246509
             "window.menuBarVisibility" = "classic";
             "window.zoomLevel" = 0.5;

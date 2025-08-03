@@ -23,11 +23,12 @@
   ];
   # Enable Kasm 
   # TODO: Проба использования локального сервиса 
-  services.kasmweb = {
-     enable = true;
-     listenPort = 9999;
-     defaultAdminPassword = "TesterikS"; # сменить при последующей настройке
-   };
+  #services.kasmweb = {
+  #   enable = true;
+  #   listenPort = 9999;
+  #   defaultAdminPassword = "TesterikS"; # сменить при последующей настройке
+     
+  # };
   
   # Enable Docker #Добавлена поддержка докера и пользователя 
   virtualisation.docker = {

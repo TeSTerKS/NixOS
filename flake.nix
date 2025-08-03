@@ -50,7 +50,7 @@
       username = "tektus"; # automatically set with install.sh and live-install.sh
       editor = "nvchad"; # nixvim, vscode, nvchad, neovim, emacs (WIP)
       browser = "zen"; # firefox, floorp, zen
-      terminal = "kitty"; # kitty, alacritty, wezterm
+      terminal = "wezterm"; # kitty, alacritty, wezterm
       terminalFileManager = "yazi"; # yazi or lf
       sddmTheme = "purple_leaves"; # astronaut, black_hole, purple_leaves, jake_the_dog, hyprland_kath
       wallpaper = "kurzgesagt"; # see modules/themes/wallpapers
@@ -62,7 +62,8 @@
       timezone = "Europe/Moscow"; # CHOOSE YOUR TIMEZONE
       kbdLayout = "us"; # CHOOSE YOUR KEYBOARD LAYOUT
       kbdVariant = ""; # CHOOSE YOUR KEYBOARD VARIANT (Can leave empty)
-      consoleKeymap = "us"; # CHOOSE YOUR CONSOLE KEYMAP (Affects the tty?)
+      consoleKeymap = "ruwin_alt_sh-UTF-8"; # CHOOSE YOUR CONSOLE KEYMAP (Affects the tty?)
+      consolefont = "cyr-sun16"; #"LatArCyrHeb-16"; # Установка русского шрифта для виртуальной колнсоли 
     };
 
     systems = [

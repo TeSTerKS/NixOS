@@ -10,6 +10,7 @@
   kbdLayout,
   kbdVariant,
   consoleKeymap,
+  consolefont,
   config,
   self,
   ...

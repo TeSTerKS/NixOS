@@ -1,6 +1,6 @@
 {lib, ...}: {
   fileSystems."/mnt/work" = lib.mkForce {
-    device = "/dev/disk/by-uuid/f6f6d68c-68f8-4c50-8155-105a22b9ff35";
+    device = "/dev/disk/by-uuid/97d2f454-f0dd-4ecf-ad75-402a0cc8e572";
     fsType = "ext4";
     options = [
       "defaults" # Default flags
