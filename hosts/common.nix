@@ -82,6 +82,7 @@
           ripgrep
           tldr
           unzip
+          unrar
         ];
       };
     };
@@ -233,13 +234,15 @@
   fonts.packages = with pkgs.nerd-fonts; [
     jetbrains-mono
     fira-code
+    
+
   ];
 
   nixpkgs = {
     overlays = builtins.attrValues outputs.overlays;
     config = {
       allowUnfree = true;
-      # allowUnfreePredicate = _: true;
+      allowUnfreePredicate = _: true;
     };
   };
 
@@ -266,7 +269,7 @@
     pkgs.kdePackages.qtvirtualkeyboard
     # libsForQt5.qt5.qtgraphicaleffects
 
-    # devenv
+    devenv
     # devbox
     # shellify
   ];

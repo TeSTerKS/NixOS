@@ -14,7 +14,7 @@ in {
     __GLX_VENDOR_LIBRARY_NAME = "nvidia";
     # MOZ_DISABLE_RDD_SANDBOX = 1; # Potential security risk
 
-    __GL_GSYNC_ALLOWED = "1"; # GSync
+    __GL_GSYNC_ALLOWED = "0"; # GSync
   };
 
   # Load nvidia driver for Xorg and Wayland
