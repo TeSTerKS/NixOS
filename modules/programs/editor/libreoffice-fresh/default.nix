@@ -3,5 +3,9 @@
     packages = with pkgs; [libreoffice-fresh];
     services.libreoffice-fresh.wantedBy = ["multi-user.target"];
   };
-  environment.systemPackages = with pkgs; [libreoffice-fresh];
+  environment.systemPackages = with pkgs; [
+    libreoffice-fresh
+    vista-fonts
+    corefonts
+    ];
 }
