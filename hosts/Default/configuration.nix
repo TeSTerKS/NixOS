@@ -46,6 +46,7 @@
     ../../modules/programs/misc/nix-ld
     ../../modules/programs/misc/virt-manager
     ../../modules/programs/editor/libreoffice-fresh
+    ../../modules/programs/editor/mupdf
     #../../modules/misc/gc
   ];
 
