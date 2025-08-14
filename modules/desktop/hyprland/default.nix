@@ -178,7 +178,7 @@
           layerrule = [
             "blur, rofi"
             "ignorezero, rofi"
-            "ignorealpha 0.7, rofi"
+            "ignorealpha 0.8, rofi"
 
             "blur, swaync-control-center"
             "blur, swaync-notification-window"

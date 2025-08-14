@@ -61,7 +61,7 @@
             }
             {
               monitor = "";
-              text = "Hello <span text_transform=\"capitalize\" size=\"larger\">$USER!</span>";
+              text = "Привет <span text_transform=\"capitalize\" size=\"larger\">$USER!</span>";
               color = "rgb(198, 160, 246)";
               font_size = 20;
               font_family = "JetBrains Mono Nerd Font 10";
@@ -71,7 +71,7 @@
             }
             {
               monitor = "";
-              text = "Current Layout : $LAYOUT";
+              text = "Текущая раскладка : $LAYOUT";
               color = "rgb(198, 160, 246)";
               font_size = 14;
               font_family = "JetBrains Mono Nerd Font 10";
@@ -82,7 +82,7 @@
             /*
                {
               monitor = "";
-              text = "Enter your password to unlock.";
+              text = "Введите пароль для разблокировки.";
               color = "rgb(198, 160, 246)";
               font_size = 14;
               font_family = "JetBrains Mono Nerd Font 10";
