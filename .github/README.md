@@ -59,8 +59,6 @@ git clone https://github.com/Sly-Harvey/NixOS.git ~/NixOS
 git clone https://github.com/TeSTerKS/NixOS.git ~/NixOS
 ```
 
-
-
 ```bash
 cd ~/NixOS
 ```
@@ -68,30 +66,30 @@ cd ~/NixOS
 ./install.sh
 ```
 
-# Rebuilding
-There are 4 ways to rebuild.<br>
-1) Press **Super + U**.
-2) Run `rebuild` in the terminal
-3) Execute the `install.sh` script again.
-4) Run `sudo nixos-rebuild switch --flake ~/NixOS#Default` if you installed from the live iso then use /etc/nixos#Default 
+# Востановление
+Существует 4 способа восстановления.<br>
+1) Нажать **Super + U**.
+2) Запустить `rebuild` в терминале
+3) Выполнить скрипт `install.sh` повторно.
+4) Запустить  `sudo nixos-rebuild switch --flake ~/NixOS#Default` если вы установили с live iso, то используйте /etc/nixos#Default 
 
-For a list of keybinds press **Super + ?** or **Super + Ctrl + K**
+Для просмотра списка сочетаний клавиш нажмите  **Super + ?** или **Super + Ctrl + K**
 
 <details>
-<summary>How to Use the Development Shells</summary>
+<summary>Как использовать оболочки разработки</summary>
 
-- To initialise a new project from a template:
+- Чтобы инициализировать новый проект из шаблона:
 ```bash
 nix flake init -t ~/NixOS#NAME
 ```
-- Alternatively, use the `new` keyword to create a new directory:
+- В качестве альтернативы используйте ключевое слово `new` для создания нового каталога.:
 ```bash
 nix flake new -t ~/NixOS#NAME PROJECT_NAME
 ```
-Replace `NAME` with any template defined in `dev-shells/default.nix`.<br>
-These commands will generate a flake.nix and flake.lock file in your project directory.<br>
-To enter the development shell:
-- Use direnv if configured, or navigate to the project directory and run:
+Замените `NAME` любым шаблоном, определенным в `dev-shells/default.nix`.<br>
+Эти команды создадут файлы flake.nix и flake.lock в каталоге вашего проекта.<br>
+Чтобы войти в оболочку разработки:
+- Используйте direnv, если он настроен, или перейдите в каталог проекта и выполните:
 ```bash
 nix develop
 ```
@@ -103,16 +101,16 @@ nix develop
 ### Credits/Inspiration
 | Credit                                                              |  Reason                                |
 |---------------------------------------------------------------------|----------------------------------------|
-| [Hyprland-Dots](https://github.com/JaKooLit/Hyprland-Dots)          | Script and Waybar templates            |
-| [HyDE](https://github.com/HyDE-Project/HyDE)                        | Some more useful scripts               |
-| [rofi](https://github.com/adi1090x/rofi)                            | Rofi launcher templates                |
-| [dev-templates](https://github.com/the-nix-way/dev-templates)       | Development templates                  |
-| [Vimjoyer](https://www.youtube.com/@vimjoyer)                       | Short, simple, concise guides and info |
+| [Hyprland-Dots](https://github.com/JaKooLit/Hyprland-Dots)          | Script и Waybar шаблоны            |
+| [HyDE](https://github.com/HyDE-Project/HyDE)                        | Еще несколько полезных скриптов               |
+| [rofi](https://github.com/adi1090x/rofi)                            | Rofi launcher шаблоны                |
+| [dev-templates](https://github.com/the-nix-way/dev-templates)       | Development шаблоны                  |
+| [Vimjoyer](https://www.youtube.com/@vimjoyer)                       | Короткие, простые и содержательные руководства и информация |
 
 <!-- </details> -->
 
 <details>
-<summary>Star History</summary>
+<summary>Star History Оригинального репозитория</summary>
 <a href="https://github.com/Sly-Harvey/NixOS/stargazers">
  <picture>
    <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/svg?repos=Sly-Harvey/NixOS&type=Date&theme=dark" />
