@@ -33,7 +33,7 @@
 ![Screenshot](assets/preview1.png)
 ![Screenshot](assets/preview2.png)
 <details>
-<summary>More Previews</summary>
+<summary>Больше Примеров</summary>
 
 ![Screenshot](assets/preview3.png)
 ![Screenshot](assets/preview4.png)
@@ -41,10 +41,10 @@
 
 </details>
 
-# Installation
+# Установка
 > [!Note]
-> <p>You should review the configuration variables in `flake.nix` before installing.<br>
-> Also, check the imports at the top of `hosts/Default/configuration.nix`</p>
+> <p>Перед установкой следует просмотреть переменные конфигурации в `flake.nix`.<br>
+> Также проверьте импорт в верхней части `hosts/Default/configuration.nix`</p>
 You can use the `install.sh` script while booted into a system or in the live installer.<br>
 If you prefer the latter, you can obtain an ISO from [here](https://nixos.org/download/#nixos-iso).<br>
 The minimal ISO is recommended, but you can use any.
