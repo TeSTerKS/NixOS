@@ -57,7 +57,7 @@
         # pokego # Overlayed
         krita
         github-desktop
-        # gimp
+        gimp
         # Обезательно к установке 
         telegram-desktop
         obsidian
