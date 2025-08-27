@@ -34,17 +34,17 @@
     ../../modules/programs/cli/btop
     ../../modules/programs/shell/bash
     ../../modules/programs/shell/zsh
-    ../../modules/programs/media/discord
-    ../../modules/programs/media/spicetify
-    ../../modules/programs/media/youtube-music
-    ../../modules/programs/media/thunderbird
-    ../../modules/programs/media/obs-studio
+    #../../modules/programs/media/discord
+    #../../modules/programs/media/spicetify
+    #../../modules/programs/media/youtube-music
+    #../../modules/programs/media/thunderbird
+    #../../modules/programs/media/obs-studio
     ../../modules/programs/media/mpv
     ../../modules/programs/misc/tlp
     ../../modules/programs/misc/thunar
-    ../../modules/programs/misc/lact # GPU fan, clock and power configuration
+    #../../modules/programs/misc/lact # GPU fan, clock and power configuration
     ../../modules/programs/misc/nix-ld
-    ../../modules/programs/misc/virt-manager
+    #../../modules/programs/misc/virt-manager
     ../../modules/programs/editor/libreoffice-fresh
     ../../modules/programs/editor/mupdf
     #../../modules/misc/gc
@@ -58,16 +58,14 @@
         krita
         github-desktop
         gimp
-        # Обезательно к установке 
+        # Обезательно к установке
         telegram-desktop
         obsidian
         unrar
 
         # Более новая версия
-        hunspellDicts.ru-ru  # Русский словарь
-        hunspellDicts.en-us  # Английский словарь
-
-
+        hunspellDicts.ru-ru # Русский словарь
+        hunspellDicts.en-us # Английский словарь
       ];
     })
   ];

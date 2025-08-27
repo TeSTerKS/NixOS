@@ -75,7 +75,6 @@
           git
           gh
           htop
-          micro-full
           libjxl
           microfetch
           nix-prefetch-scripts
@@ -113,8 +112,8 @@
         device = "nodev";
         efiSupport = true;
         useOSProber = true;
-        # gfxmodeEfi = "1920x1080"; # for 4k: 3840x2160
-        # gfxmodeBios = "1920x1080"; # for 4k: 3840x2160
+        gfxmodeEfi = "1920x1080"; # for 4k: 3840x2160
+        gfxmodeBios = "1920x1080"; # for 4k: 3840x2160
         theme = pkgs.stdenv.mkDerivation {
           pname = "distro-grub-themes";
           version = "3.1";
@@ -234,8 +233,6 @@
   fonts.packages = with pkgs.nerd-fonts; [
     jetbrains-mono
     fira-code
-    
-
   ];
 
   nixpkgs = {
@@ -264,9 +261,9 @@
     jq
     bibata-cursors
     sddm-astronaut # Overlayed
-    pkgs.kdePackages.qtsvg
-    pkgs.kdePackages.qtmultimedia
-    pkgs.kdePackages.qtvirtualkeyboard
+    #pkgs.kdePackages.qtsvg
+    #pkgs.kdePackages.qtmultimedia
+    #pkgs.kdePackages.qtvirtualkeyboard
     # libsForQt5.qt5.qtgraphicaleffects
 
     devenv
@@ -285,18 +282,17 @@
   # List services that you want to enable:
 
   # Enable the OpenSSH daemon.
-  
-     services.openssh = {
+
+  services.openssh = {
     enable = true;
     settings = {
       PasswordAuthentication = true;
-      AllowUsers = [ "tektus" ]; # Allows all users by default. Can be [ "user1" "user2" ]
+      AllowUsers = ["tektus"]; # Allows all users by default. Can be [ "user1" "user2" ]
       UseDns = true;
       X11Forwarding = false;
       PermitRootLogin = "prohibit-password"; # "yes", "without-password", "prohibit-password", "forced-commands-only", "no"
     };
   };
-  
 
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];
