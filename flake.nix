@@ -56,14 +56,14 @@
       wallpaper = "kurzgesagt"; # see modules/themes/wallpapers
 
       # System configuration
-      videoDriver = "nvidia"; # CHOOSE YOUR GPU DRIVERS (nvidia, amdgpu or intel)
+      videoDriver = "intel"; # CHOOSE YOUR GPU DRIVERS (nvidia, amdgpu or intel)
       hostname = "devnoute"; # CHOOSE A HOSTNAME HERE
       locale = "ru_RU.UTF-8"; # CHOOSE YOUR LOCALE
       timezone = "Europe/Moscow"; # CHOOSE YOUR TIMEZONE
       kbdLayout = "us"; # CHOOSE YOUR KEYBOARD LAYOUT
       kbdVariant = ""; # CHOOSE YOUR KEYBOARD VARIANT (Can leave empty)
       consoleKeymap = "ruwin_alt_sh-UTF-8"; # CHOOSE YOUR CONSOLE KEYMAP (Affects the tty?)
-      consolefont = "cyr-sun16"; #"LatArCyrHeb-16"; # Установка русского шрифта для виртуальной колнсоли 
+      consolefont = "cyr-sun16"; #"LatArCyrHeb-16"; # Установка русского шрифта для виртуальной колнсоли
     };
 
     systems = [

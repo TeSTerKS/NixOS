@@ -18,10 +18,10 @@ in {
   };
 
   # Load nvidia driver for Xorg and Wayland
-  services.xserver.videoDrivers = ["nvidiaLegacy470"]; # or "nvidiaLegacy470", etc.
+  services.xserver.videoDrivers = ["nvidia"]; # or "nvidiaLegacy470", etc.
   boot.kernelParams = lib.optionals (lib.elem "nvidia" config.services.xserver.videoDrivers) [
     "nvidia-drm.modeset=1"
-    "nvidia_drm.fbdev=1"
+    # "nvidia_drm.fbdev=1"
   ];
   hardware = {
     nvidia = {
@@ -30,23 +30,24 @@ in {
       # nvidiaPersistenced = true;
       nvidiaSettings = true;
       powerManagement.enable = true; # This can cause sleep/suspend to fail.
+      powerManagement.finegrained = false;
       modesetting.enable = true;
+
       #package = config.boot.kernelPackages.nvidiaPackages.legacy_470;
       package = nvidiaDriverChannel;
       prime = {
-  		  offload = {
-  			  enable = true;
-  			  enableOffloadCmd = true;
-  		  };
+        offload = {
+          enable = true;
+          enableOffloadCmd = true;
+        };
 
-        intelBusId = "PCI:0:2:0";
-        nvidiaBusId = "PCI:1:0:0";
+        intelBusId = "PCI:1:0:0";
+        nvidiaBusId = "PCI:0:2:0";
       };
-
     };
     graphics = {
       enable = true;
-      # package = nvidiaDriverChannel;
+      package = nvidiaDriverChannel;
       enable32Bit = true;
       extraPackages = with pkgs; [
         nvidia-vaapi-driver
@@ -72,7 +73,7 @@ in {
   };
   specialisation = {
     nvidia-sync.configuration = {
-      system.nixos.tags = [ "nvidia-sync" ];
+      system.nixos.tags = ["nvidia-sync"];
       hardware.nvidia = {
         powerManagement.finegrained = lib.mkForce false;
 

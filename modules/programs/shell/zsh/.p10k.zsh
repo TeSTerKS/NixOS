@@ -52,7 +52,7 @@
     dir                       # current directory
     vcs                       # git status
     command_execution_time    # previous command duration
-    virtualenv                # python virtual environment
+    #virtualenv                # python virtual environment
     prompt_char               # prompt symbol
   )
 

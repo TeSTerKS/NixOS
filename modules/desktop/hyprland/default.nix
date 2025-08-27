@@ -51,6 +51,8 @@
       home.packages = with pkgs; [
         hyprpaper
         hyprpicker
+        hyprpolkitagent
+        hyprland-qtutils
         cliphist
         grimblast
         swappy
@@ -82,7 +84,11 @@
         ];
         systemd = {
           enable = true;
+          enableXdgAutostart = true;
           variables = ["--all"];
+        };
+        xwayland = {
+          enable = true;
         };
         settings = {
           "$mainMod" = "SUPER";
@@ -92,23 +98,29 @@
           "$browser" = browser;
 
           env = [
+            "NIXOS_OZONE_WL,1"
+            "NIXPKGS_ALLOW_UNFREE, 1"
             "XDG_CURRENT_DESKTOP,Hyprland"
             "XDG_SESSION_DESKTOP,Hyprland"
             "XDG_SESSION_TYPE,wayland"
             "GDK_BACKEND,wayland,x11,*"
-            "NIXOS_OZONE_WL,1"
+            "CLUTTER_BACKEND,wayland"
             "ELECTRON_OZONE_PLATFORM_HINT,auto"
             "MOZ_ENABLE_WAYLAND,1"
             "OZONE_PLATFORM,wayland"
             "EGL_PLATFORM,wayland"
-            "CLUTTER_BACKEND,wayland"
+            "AQ_DRM_DEVICES,/dev/dri/card1:/dev/card2"
+            "GDK_SCALE,1"
+            "QT_SCALE_FACTOR,1"
+            "EDITOR,nvim"
             "SDL_VIDEODRIVER,wayland"
             "QT_QPA_PLATFORM,wayland;xcb"
             "QT_WAYLAND_DISABLE_WINDOWDECORATION,1"
             "QT_QPA_PLATFORMTHEME,qt6ct"
             "QT_AUTO_SCREEN_SCALE_FACTOR,1"
             "WLR_RENDERER_ALLOW_SOFTWARE,1"
-            "NIXPKGS_ALLOW_UNFREE,1"
+            "TERMINAL,kitty"
+            "XDG_TERMINAL_EMULATOR,kitty"
           ];
           exec-once = [
             #"[workspace 1 silent] ${terminal}"
@@ -116,9 +128,14 @@
             #"[workspace 6 silent] spotify"
             #"[workspace special silent] ${browser} --private-window"
             #"[workspace special silent] ${terminal}"
+            #"killall -q swww;sleep .5 && swww init"
+            
+            "dbus-update-activation-environment --all --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP"
+            "systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP"
+            "systemctl --user start hyprpolkitagent"
 
-            "waybar"
-            "swaync"
+            "killall -q waybar;sleep .5 && waybar"
+            "killall -q swaync;sleep .5 && swaync"
             "nm-applet --indicator"
             "wl-clipboard-history -t"
             "${getExe' pkgs.wl-clipboard "wl-paste"} --type text --watch cliphist store" # clipboard store text data

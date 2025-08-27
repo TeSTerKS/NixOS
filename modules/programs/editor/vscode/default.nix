@@ -23,7 +23,7 @@
             asvetliakov.vscode-neovim
             # vscodevim.vim
             tamasfe.even-better-toml
-            #jnoortheen.nix-ide
+            jnoortheen.nix-ide
             # redhat.vscode-yaml
             # vadimcn.vscode-lldb
             rust-lang.rust-analyzer
@@ -32,9 +32,9 @@
             ms-vscode.makefile-tools
             ziglang.vscode-zig
             # ms-dotnettools.csharp
-            ms-python.python
-            # pkief.material-icon-theme
-            # equinusocio.vsc-material-theme
+            #ms-python.python
+            pkief.material-icon-theme
+            #equinusocio.vsc-material-theme
             dracula-theme.theme-dracula
           ];  
           keybindings = [

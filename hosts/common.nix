@@ -102,7 +102,7 @@
   # Bootloader.
   boot = {
     tmp.cleanOnBoot = true;
-    kernelPackages = pkgs.linuxPackages_latest; # _latest, _zen, _xanmod_latest, _hardened, _rt, _OTHER_CHANNEL, etc.
+    kernelPackages = pkgs.linuxPackages; # _latest, _zen, _xanmod_latest, _hardened, _rt, _OTHER_CHANNEL, etc.
     loader = {
       efi.canTouchEfiVariables = true;
       efi.efiSysMountPoint = "/boot";
@@ -186,7 +186,7 @@
       wayland.enable = true;
       enableHidpi = true;
       package = pkgs.kdePackages.sddm;
-      theme = "sddm-astronaut-theme";
+      theme = "sddm-tokyo-night-theme";
       settings.Theme.CursorTheme = "Bibata-Modern-Classic";
       extraPackages = with pkgs; [
         kdePackages.qtmultimedia
@@ -266,7 +266,7 @@
     #pkgs.kdePackages.qtvirtualkeyboard
     # libsForQt5.qt5.qtgraphicaleffects
 
-    devenv
+    # devenv
     # devbox
     # shellify
   ];
