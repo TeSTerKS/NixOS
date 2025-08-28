@@ -34,12 +34,12 @@
     ../../modules/programs/cli/btop
     ../../modules/programs/shell/bash
     ../../modules/programs/shell/zsh
-    ../../modules/programs/misc/nh
+    #../../modules/programs/misc/nh
     #../../modules/programs/media/discord
-    #../../modules/programs/media/spicetify
-    #../../modules/programs/media/youtube-music
-    #../../modules/programs/media/thunderbird
-    #../../modules/programs/media/obs-studio
+    ../../modules/programs/media/spicetify
+    ../../modules/programs/media/youtube-music
+    ../../modules/programs/media/thunderbird
+    ../../modules/programs/media/obs-studio
     ../../modules/programs/media/mpv
     ../../modules/programs/misc/tlp
     ../../modules/programs/misc/thunar
@@ -56,9 +56,9 @@
     (_: {
       home.packages = with pkgs; [
         # pokego # Overlayed
-        #krita
+        krita
         #github-desktop
-        #gimp
+        gimp
         # Обезательно к установке
         telegram-desktop
         obsidian
