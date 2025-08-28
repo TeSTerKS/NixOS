@@ -48,7 +48,7 @@
     #../../modules/programs/misc/virt-manager
     ../../modules/programs/editor/libreoffice-fresh
     ../../modules/programs/editor/mupdf
-    ../../modules/misc/gc`
+    ../../modules/misc/gc
   ];
 
   # Home-manager config
