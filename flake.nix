@@ -39,48 +39,54 @@
     };
   };
 
-  outputs = {
-    self,
-    nixpkgs,
-    ...
-  } @ inputs: let
-    inherit (self) outputs;
-    settings = {
-      # User configuration
-      username = "tektus"; # automatically set with install.sh and live-install.sh
-      editor = "nvchad"; # nixvim, vscode, nvchad, neovim, emacs (WIP)
-      browser = "zen"; # firefox, floorp, zen
-      terminal = "wezterm"; # kitty, alacritty, wezterm
-      terminalFileManager = "yazi"; # yazi or lf
-      sddmTheme = "purple_leaves"; # astronaut, black_hole, purple_leaves, jake_the_dog, hyprland_kath
-      wallpaper = "kurzgesagt"; # see modules/themes/wallpapers
+  outputs =
+    {
+      self,
+      nixpkgs,
+      ...
+    }@inputs:
+    let
+      inherit (self) outputs;
+      settings = {
+        # User configuration
+        username = "tektus"; # automatically set with install.sh and live-install.sh
+        editor = "nvchad"; # nixvim, vscode, nvchad, neovim, emacs (WIP)
+        browser = "zen"; # firefox, floorp, zen
+        terminal = "wezterm"; # kitty, alacritty, wezterm
+        terminalFileManager = "yazi"; # yazi or lf
+        sddmTheme = "purple_leaves"; # astronaut, black_hole, purple_leaves, jake_the_dog, hyprland_kath
+        wallpaper = "kurzgesagt"; # see modules/themes/wallpapers
 
-      # System configuration
-      videoDriver = "intel"; # CHOOSE YOUR GPU DRIVERS (nvidia, amdgpu or intel)
-      hostname = "devnoute"; # CHOOSE A HOSTNAME HERE
-      locale = "ru_RU.UTF-8"; # CHOOSE YOUR LOCALE
-      timezone = "Europe/Moscow"; # CHOOSE YOUR TIMEZONE
-      kbdLayout = "us"; # CHOOSE YOUR KEYBOARD LAYOUT
-      kbdVariant = ""; # CHOOSE YOUR KEYBOARD VARIANT (Can leave empty)
-      consoleKeymap = "us"; # CHOOSE YOUR CONSOLE KEYMAP (Affects the tty?)
-      consolefont = "cyr-sun16"; #"LatArCyrHeb-16"; # Установка русского шрифта для виртуальной колнсоли
-    };
+        # System configuration
+        videoDriver = "intel"; # CHOOSE YOUR GPU DRIVERS (nvidia, amdgpu or intel)
+        hostname = "devnoute"; # CHOOSE A HOSTNAME HERE
+        locale = "ru_RU.UTF-8"; # CHOOSE YOUR LOCALE
+        timezone = "Europe/Moscow"; # CHOOSE YOUR TIMEZONE
+        kbdLayout = "us"; # CHOOSE YOUR KEYBOARD LAYOUT
+        kbdVariant = ""; # CHOOSE YOUR KEYBOARD VARIANT (Can leave empty)
+        consoleKeymap = "ru"; # CHOOSE YOUR CONSOLE KEYMAP (Affects the tty?)
+        consolefont = "cyr-sun16"; # "LatArCyrHeb-16"; # Установка русского шрифта для виртуальной колнсоли
+      };
 
-    systems = [
-      "x86_64-linux"
-      "aarch64-linux"
-    ];
-    forAllSystems = nixpkgs.lib.genAttrs systems;
-  in {
-    templates = import ./dev-shells;
-    overlays = import ./overlays {inherit inputs settings;};
-    formatter = forAllSystems (system: nixpkgs.legacyPackages.${system}.alejandra);
-    nixosConfigurations = {
-      Default = nixpkgs.lib.nixosSystem {
-        system = forAllSystems (system: system);
-        specialArgs = {inherit self inputs outputs;} // settings;
-        modules = [./hosts/Default/configuration.nix];
+      systems = [
+        "x86_64-linux"
+        "aarch64-linux"
+      ];
+      forAllSystems = nixpkgs.lib.genAttrs systems;
+    in
+    {
+      templates = import ./dev-shells;
+      overlays = import ./overlays { inherit inputs settings; };
+      formatter = forAllSystems (system: nixpkgs.legacyPackages.${system}.alejandra);
+      nixosConfigurations = {
+        Default = nixpkgs.lib.nixosSystem {
+          system = forAllSystems (system: system);
+          specialArgs = {
+            inherit self inputs outputs;
+          }
+          // settings;
+          modules = [ ./hosts/Default/configuration.nix ];
+        };
       };
     };
-  };
 }

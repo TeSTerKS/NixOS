@@ -14,7 +14,8 @@
   config,
   self,
   ...
-}: {
+}:
+{
   imports = [
     inputs.home-manager.nixosModules.home-manager
     inputs.nix-index-database.nixosModules.nix-index
@@ -44,53 +45,61 @@
     useGlobalPkgs = true;
     useUserPackages = true;
     backupFileExtension = "backup";
-    users.${username} = {pkgs, ...}: {
-      # Let Home Manager install and manage itself.
-      programs.home-manager.enable = true;
+    users.${username} =
+      { pkgs, ... }:
+      {
+        # Let Home Manager install and manage itself.
+        programs.home-manager.enable = true;
 
-      xdg.enable = true;
-      xdg.portal = {
-        enable = true;
-        extraPortals = with pkgs; [xdg-desktop-portal-hyprland xdg-desktop-portal-gtk];
-        xdgOpenUsePortal = true;
-      };
-      home = {
-        username = username;
-        homeDirectory =
-          if pkgs.stdenv.isDarwin
-          then "/Users/${username}"
-          else "/home/${username}";
-        stateVersion = "23.11"; # Please read the comment before changing.
-        sessionVariables = {
-          EDITOR = "nvim";
-          BROWSER = browser;
-          TERMINAL = terminal;
+        xdg.enable = true;
+        xdg.portal = {
+          enable = true;
+          extraPortals = with pkgs; [
+            xdg-desktop-portal-hyprland
+            xdg-desktop-portal-gtk
+          ];
+          xdgOpenUsePortal = true;
         };
-        # Packages that don't require configuration. If you're looking to configure a program see the /modules dir
-        packages = with pkgs; [
-          # Applications
-          #kate
+        home = {
+          username = username;
+          homeDirectory = if pkgs.stdenv.isDarwin then "/Users/${username}" else "/home/${username}";
+          stateVersion = "25.05"; # Please read the comment before changing.
+          sessionVariables = {
+            EDITOR = "nvim";
+            BROWSER = browser;
+            TERMINAL = terminal;
+          };
+          # Packages that don't require configuration. If you're looking to configure a program see the /modules dir
+          packages = with pkgs; [
+            # Applications
+            #kate
 
-          # Terminal
-          fzf
-          fd
-          git
-          gh
-          htop
-          libjxl
-          microfetch
-          nix-prefetch-scripts
-          ripgrep
-          tldr
-          unzip
-          unrar
-        ];
+            # Terminal
+            fzf
+            fd
+            git
+            gh
+            htop
+            libjxl
+            microfetch
+            nix-prefetch-scripts
+            ripgrep
+            tldr
+            unzip
+            unrar
+          ];
+        };
       };
-    };
   };
 
   # Filesystems support
-  boot.supportedFilesystems = ["ntfs" "exfat" "ext4" "fat32" "btrfs"];
+  boot.supportedFilesystems = [
+    "ntfs"
+    "exfat"
+    "ext4"
+    "fat32"
+    "btrfs"
+  ];
   services.devmon.enable = true;
   services.gvfs.enable = true;
   services.udisks2.enable = true;
@@ -145,7 +154,15 @@
     LC_TELEPHONE = locale;
     LC_TIME = locale;
   };
-  console.keyMap = consoleKeymap; # Configure console keymap
+
+  console = {
+    earlySetup = true;
+    enable = true;
+    font = consolefont;
+    keyMap = consoleKeymap;
+
+  };
+
   services.xserver = {
     exportConfiguration = true; # Make sure /etc/X11/xkb is populated so localectl works correctly
     xkb = {
@@ -180,22 +197,22 @@
     # networking.proxy.default = "http://user:password@proxy:port/";
     # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
   };
- #services.greetd = {
- #   enable = true;
- #   #vt = 1;
- #   settings = {
- #     default_session = {
- #       user = username;
- #       command = "${pkgs.greetd.tuigreet}/bin/tuigreet --time --cmd Hyprland"; # start Hyprland with a TUI login manager
- #     };
- #   };
- # };
+  #services.greetd = {
+  #   enable = true;
+  #   #vt = 1;
+  #   settings = {
+  #     default_session = {
+  #       user = username;
+  #       command = "${pkgs.greetd.tuigreet}/bin/tuigreet --time --cmd Hyprland"; # start Hyprland with a TUI login manager
+  #     };
+  #   };
+  # };
 
   # Enable sddm login manager
   services.displayManager = {
     sddm = {
       enable = true;
-     wayland.enable = true;
+      wayland.enable = true;
       enableHidpi = true;
       package = pkgs.kdePackages.sddm;
       theme = "sddm-astronaut-theme";
@@ -243,8 +260,7 @@
 
   fonts.fontDir.enable = true;
   fonts.packages = with pkgs.nerd-fonts; [
-    jetbrains-mono
-    fira-code
+
   ];
 
   nixpkgs = {
@@ -299,7 +315,7 @@
     enable = true;
     settings = {
       PasswordAuthentication = true;
-      AllowUsers = ["tektus"]; # Allows all users by default. Can be [ "user1" "user2" ]
+      AllowUsers = [ "tektus" ]; # Allows all users by default. Can be [ "user1" "user2" ]
       UseDns = true;
       X11Forwarding = false;
       PermitRootLogin = "prohibit-password"; # "yes", "without-password", "prohibit-password", "forced-commands-only", "no"
@@ -335,7 +351,7 @@
         "https://nix-gaming.cachix.org/"
         "https://hyprland.cachix.org"
         "https://nixpkgs-wayland.cachix.org"
-        # "https://devenv.cachix.org"
+        "https://devenv.cachix.org"
       ];
       trusted-public-keys = [
         "cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY="
@@ -345,9 +361,12 @@
         "nix-gaming.cachix.org-1:nbjlureqMbRAxR1gJ/f3hxemL9svXaZF/Ees8vCUUs4="
         "hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="
         "nixpkgs-wayland.cachix.org-1:3lwxaILxMRkVhehr5StQprHdEo4IrE8sRho9R9HOLYA="
-        # "devenv.cachix.org-1:w1cLUi8dv3hnoSPGAuibQv+f9TZLr6cv/Hm9XgU50cw="
+        "devenv.cachix.org-1:w1cLUi8dv3hnoSPGAuibQv+f9TZLr6cv/Hm9XgU50cw="
       ];
-      experimental-features = ["nix-command" "flakes"];
+      experimental-features = [
+        "nix-command"
+        "flakes"
+      ];
       use-xdg-base-directories = false;
       warn-dirty = false;
       keep-outputs = true;
@@ -363,5 +382,5 @@
   # this value at the release version of the first install of this system.
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
-  system.stateVersion = "23.11"; # Did you read the comment?
+  system.stateVersion = "25.05"; # Did you read the comment?
 }

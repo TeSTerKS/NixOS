@@ -1,4 +1,5 @@
-{pkgs, ...}: {
+{ pkgs, ... }:
+{
   fonts = {
     packages = with pkgs; [
       dejavu_fonts
@@ -11,8 +12,13 @@
       jetbrains-mono
       material-icons
       maple-mono.NF
-      #symbola   #still 404 error
+      symbola # still 404 error
       terminus_font
+
+      # Шрифты MIcrosoft
+      corefonts
+      vistafonts
+
     ];
   };
 }

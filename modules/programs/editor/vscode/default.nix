@@ -9,7 +9,7 @@
     (_: {
       programs.vscode = {
         enable = true;
-        # mutableExtensionsDir = true; # TODO: test with home-manager
+        mutableExtensionsDir = true; # TODO: test with home-manager
         # package = pkgs.vscodium;
         package = pkgs.vscode;
         profiles.default = {
@@ -26,7 +26,7 @@
             tamasfe.even-better-toml
             jnoortheen.nix-ide
             # redhat.vscode-yaml
-             vadimcn.vscode-lldb
+            vadimcn.vscode-lldb
             rust-lang.rust-analyzer
             ms-vscode.cpptools
             ms-vscode.cmake-tools
