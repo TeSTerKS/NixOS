@@ -30,8 +30,10 @@
       "kvm"
       "input"
       "disk"
+      "seat"
       "libvirtd"
       "video"
+      "users"
       "audio"
       "docker"
     ];
@@ -178,15 +180,25 @@
     # networking.proxy.default = "http://user:password@proxy:port/";
     # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
   };
+ #services.greetd = {
+ #   enable = true;
+ #   #vt = 1;
+ #   settings = {
+ #     default_session = {
+ #       user = username;
+ #       command = "${pkgs.greetd.tuigreet}/bin/tuigreet --time --cmd Hyprland"; # start Hyprland with a TUI login manager
+ #     };
+ #   };
+ # };
 
   # Enable sddm login manager
   services.displayManager = {
     sddm = {
       enable = true;
-      wayland.enable = true;
+     wayland.enable = true;
       enableHidpi = true;
       package = pkgs.kdePackages.sddm;
-      theme = "sddm-tokyo-night-theme";
+      theme = "sddm-astronaut-theme";
       settings.Theme.CursorTheme = "Bibata-Modern-Classic";
       extraPackages = with pkgs; [
         kdePackages.qtmultimedia

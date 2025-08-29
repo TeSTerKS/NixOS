@@ -62,7 +62,7 @@
       timezone = "Europe/Moscow"; # CHOOSE YOUR TIMEZONE
       kbdLayout = "us"; # CHOOSE YOUR KEYBOARD LAYOUT
       kbdVariant = ""; # CHOOSE YOUR KEYBOARD VARIANT (Can leave empty)
-      consoleKeymap = "ruwin_alt_sh-UTF-8"; # CHOOSE YOUR CONSOLE KEYMAP (Affects the tty?)
+      consoleKeymap = "us"; # CHOOSE YOUR CONSOLE KEYMAP (Affects the tty?)
       consolefont = "cyr-sun16"; #"LatArCyrHeb-16"; # Установка русского шрифта для виртуальной колнсоли
     };
 

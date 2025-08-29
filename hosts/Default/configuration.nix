@@ -38,7 +38,7 @@
     #../../modules/programs/media/discord
     ../../modules/programs/media/spicetify
     ../../modules/programs/media/youtube-music
-    ../../modules/programs/media/thunderbird
+    #../../modules/programs/media/thunderbird
     ../../modules/programs/media/obs-studio
     ../../modules/programs/media/mpv
     ../../modules/programs/misc/tlp
@@ -48,7 +48,7 @@
     #../../modules/programs/misc/virt-manager
     ../../modules/programs/editor/libreoffice-fresh
     ../../modules/programs/editor/mupdf
-    ../../modules/misc/gc
+    #../../modules/programs/misc/gc
   ];
 
   # Home-manager config
@@ -56,14 +56,14 @@
     (_: {
       home.packages = with pkgs; [
         # pokego # Overlayed
-        krita
+        #krita
         #github-desktop
         gimp
         # Обезательно к установке
         telegram-desktop
         obsidian
         unrar
-
+        nixfmt-rfc-style
         # Более новая версия
         hunspellDicts.ru-ru # Русский словарь
         hunspellDicts.en-us # Английский словарь
