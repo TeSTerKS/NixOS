@@ -19,7 +19,7 @@
 
     # Core системы
     ../../modules/core/fonts.nix # шрифты
-    ../../modules/core/swap.nix ># своп файл
+    ../../modules/core/swap.nix # своп файл
 
     ../../modules/scripts
 
@@ -62,8 +62,8 @@
     (_: {
       home.packages = with pkgs; [
         # pokego # Overlayed
-        #krita
-        #github-desktop
+        krita
+        github-desktop
         gimp
         # Обезательно к установке
         telegram-desktop
