@@ -3,10 +3,13 @@
   pkgs,
   config,
   ...
-}: let
+}:
+let
+
   nvidiaDriverChannel = config.boot.kernelPackages.nvidiaPackages.legacy_470; # stable, latest, beta, etc. legacy_470
-in {
-  environment.sessionVariables = lib.optionalAttrs config.programs.hyprland.enable {
+in
+{
+  environment.sessionVariables = lib.optionalAttrs config.programs.hyprland.xwayland.enable {
     NVD_BACKEND = "direct";
     GBM_BACKEND = "nvidia-drm";
     WLR_NO_HARDWARE_CURSORS = "1";
@@ -18,7 +21,11 @@ in {
   };
 
   # Load nvidia driver for Xorg and Wayland
-  services.xserver.videoDrivers = ["nvidia"]; # or "nvidiaLegacy470", etc.
+  services.xserver.videoDrivers = [
+    "mesa"
+    "nvidia"
+    "nvidiaLegacy470"
+  ]; # or "nvidiaLegacy470", etc.
   boot.kernelParams = lib.optionals (lib.elem "nvidia" config.services.xserver.videoDrivers) [
     "nvidia-drm.modeset=1"
     # "nvidia_drm.fbdev=1"
@@ -28,8 +35,9 @@ in {
       # modesetting.enable = true;
       open = false;
       # nvidiaPersistenced = true;
+      forceFullCompositionPipeline = true;
       nvidiaSettings = true;
-      powerManagement.enable = true; # This can cause sleep/suspend to fail.
+      powerManagement.enable = false; # This can cause sleep/suspend to fail.
       powerManagement.finegrained = false;
       modesetting.enable = true;
 
@@ -40,9 +48,10 @@ in {
           enable = true;
           enableOffloadCmd = true;
         };
-
-        intelBusId = "PCI:1:0:0";
-        nvidiaBusId = "PCI:0:2:0";
+        #sync.enable = true;
+        #reverseSync.enable = true;
+        intelBusId = "PCI:0:2:0";
+        nvidiaBusId = "PCI:1:0:0";
       };
     };
     graphics = {
@@ -59,7 +68,8 @@ in {
   nixpkgs.config = {
     nvidia.acceptLicense = true;
     cudaSupport = true;
-    allowUnfreePredicate = pkg:
+    allowUnfreePredicate =
+      pkg:
       builtins.elem (lib.getName pkg) [
         "cudatoolkit"
         "nvidia-persistenced"
@@ -67,20 +77,27 @@ in {
         "nvidia-x11"
       ];
   };
+  hardware.opengl.extraPackages = with pkgs; [
+    mesa
+  ];
+  hardware.opengl.extraPackages32 = with pkgs.pkgsi686Linux; [
+    mesa
+  ];
+
   nix.settings = {
-    substituters = ["https://cuda-maintainers.cachix.org"];
-    trusted-public-keys = ["cuda-maintainers.cachix.org-1:0dq3bujKpuEPMCX6U4WylrUDZ9JyUG0VpVZa7CNfq5E="];
+    substituters = [ "https://cuda-maintainers.cachix.org" ];
+    trusted-public-keys = [
+      "cuda-maintainers.cachix.org-1:0dq3bujKpuEPMCX6U4WylrUDZ9JyUG0VpVZa7CNfq5E="
+    ];
   };
   specialisation = {
     nvidia-sync.configuration = {
-      system.nixos.tags = ["nvidia-sync"];
-      hardware.nvidia = {
-        powerManagement.finegrained = lib.mkForce false;
-
-        prime.offload.enable = lib.mkForce false;
-        prime.offload.enableOffloadCmd = lib.mkForce false;
-
-        prime.sync.enable = lib.mkForce true;
+      system.nixos.tags = [ "nvidia-sync" ];
+      hardware.nvidia.prime = {
+        offload.enable = lib.mkForce false;
+        offload.enableOffloadCmd = lib.mkForce false;
+        #reverseSync.enable = true;
+        sync.enable = lib.mkForce true;
       };
     };
   };

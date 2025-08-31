@@ -58,7 +58,7 @@
         wallpaper = "kurzgesagt"; # see modules/themes/wallpapers
 
         # System configuration
-        videoDriver = "intel"; # CHOOSE YOUR GPU DRIVERS (nvidia, amdgpu or intel)
+        videoDriver = "nvidia"; # CHOOSE YOUR GPU DRIVERS (nvidia, amdgpu or intel)
         hostname = "devnoute"; # CHOOSE A HOSTNAME HERE
         locale = "ru_RU.UTF-8"; # CHOOSE YOUR LOCALE
         timezone = "Europe/Moscow"; # CHOOSE YOUR TIMEZONE

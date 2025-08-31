@@ -25,6 +25,8 @@
     trusted-public-keys = [ "hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc=" ];
   };
 
+  #wayland.windowManager.hyprland.systemd.enable = false;
+
   systemd.user.services.hyprpolkitagent = {
     description = "Hyprpolkitagent - Polkit authentication agent";
     wantedBy = [ "graphical-session.target" ];
@@ -38,11 +40,12 @@
       TimeoutStopSec = 10;
     };
   };
-  services.displayManager.defaultSession = "hyprland";
+  #services.displayManager.defaultSession = "hyprland";
 
   programs.hyprland = {
     enable = true;
-    # withUWSM = true;
+    xwayland.enable = true;
+    withUWSM = true;
   };
 
   home-manager.sharedModules =

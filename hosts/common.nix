@@ -73,6 +73,7 @@
           packages = with pkgs; [
             # Applications
             #kate
+            lshw
 
             # Terminal
             fzf
@@ -87,6 +88,7 @@
             tldr
             unzip
             unrar
+            nvtopPackages.full
           ];
         };
       };
@@ -113,6 +115,12 @@
   # Bootloader.
   boot = {
     tmp.cleanOnBoot = true;
+    #kernelParams = [
+    #"acpi_backlight = acer-wmi"
+    #"acpi_osi = Linux"
+    #"acpi = noirq"
+
+    #];
     kernelPackages = pkgs.linuxPackages; # _latest, _zen, _xanmod_latest, _hardened, _rt, _OTHER_CHANNEL, etc.
     loader = {
       efi.canTouchEfiVariables = true;
@@ -209,21 +217,26 @@
   # };
 
   # Enable sddm login manager
-  services.displayManager = {
+ services.displayManager.gdm.enable = false;
+ services.displayManager = {
     sddm = {
       enable = true;
       wayland.enable = true;
-      enableHidpi = true;
+      #enableHidpi = true;
       package = pkgs.kdePackages.sddm;
       theme = "sddm-astronaut-theme";
       settings.Theme.CursorTheme = "Bibata-Modern-Classic";
       extraPackages = with pkgs; [
+        uwsm
         kdePackages.qtmultimedia
         kdePackages.qtsvg
         kdePackages.qtvirtualkeyboard
       ];
     };
   };
+
+  # services.dbus.implementation = lib.mkForce "dbus";
+  programs.uwsm.enable = true;
 
   # Setup keyring
   services.gnome.gnome-keyring.enable = true;
@@ -294,7 +307,7 @@
     #pkgs.kdePackages.qtvirtualkeyboard
     # libsForQt5.qt5.qtgraphicaleffects
 
-    # devenv
+    devenv
     # devbox
     # shellify
   ];
