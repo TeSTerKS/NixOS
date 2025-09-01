@@ -30,7 +30,7 @@ declare -A shuffle=(
   ["_Limo 🎵"]="https://youtube.com/playlist?list=PLLosUj2DlL27x3iZrv2ElvTK7-iQzQKYY"
   ["_80s 90s 2000s 🎵"]="https://youtube.com/playlist?list=PLLosUj2DlL24FAtYVcivVfHImRsu-ocj4"
   ["_Hard Rock 🎵"]="https://youtube.com/playlist?list=PLLosUj2DlL25A5u32lnZXtc_AUy-u2AUd"
-  # ["_Dance 🎵"]="https://youtube.com/playlist?list=PLLosUj2DlL27pJt4jO3HUkItoqtE8XaP9"
+   ["_DeepWork 🎵"]="https://www.youtube.com/watch?v=i0BGs4v-8H4&list=RDi0BGs4v-8H4&start_radio=1&ab_channel=DeepWork"
 )
 
 # Combine into menu_options array

@@ -37,8 +37,8 @@
     ../../modules/programs/cli/direnv
     ../../modules/programs/cli/lazygit
     ../../modules/programs/cli/cava
-    #../../modules/programs/cli/btop
-    ../../modules/programs/cli/btop-cuda
+    ../../modules/programs/cli/btop
+    #../../modules/programs/cli/btop-cuda
     ../../modules/programs/shell/bash
     ../../modules/programs/shell/zsh
     #../../modules/programs/misc/nh
@@ -54,8 +54,8 @@
     ../../modules/programs/misc/nix-ld
     #../../modules/programs/misc/virt-manager
     #../../modules/programs/editor/libreoffice-fresh
-    #../../modules/programs/editor/mupdf
-    #../../modules/programs/misc/gc
+    ../../modules/programs/editor/mupdf
+    ../../modules/programs/misc/gc
   ];
 
   # Home-manager config

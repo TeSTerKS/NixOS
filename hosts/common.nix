@@ -82,7 +82,7 @@
             gh
             htop
             libjxl
-            microfetch
+            neofetch
             nix-prefetch-scripts
             ripgrep
             tldr
@@ -217,8 +217,8 @@
   # };
 
   # Enable sddm login manager
- services.displayManager.gdm.enable = false;
- services.displayManager = {
+  services.displayManager.gdm.enable = false;
+  services.displayManager = {
     sddm = {
       enable = true;
       wayland.enable = true;
@@ -302,14 +302,11 @@
     jq
     bibata-cursors
     sddm-astronaut # Overlayed
-    #pkgs.kdePackages.qtsvg
-    #pkgs.kdePackages.qtmultimedia
-    #pkgs.kdePackages.qtvirtualkeyboard
-    # libsForQt5.qt5.qtgraphicaleffects
+    #btop-cuda
 
     devenv
-    # devbox
-    # shellify
+    devbox
+    #sellify
   ];
 
   # Some programs need SUID wrappers, can be configured further or are

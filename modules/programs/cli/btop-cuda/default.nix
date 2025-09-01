@@ -4,9 +4,9 @@
     (_: {
       programs.btop-cuda = {
         enable = true;
-        settings = {
-          color_theme = "catppuccin-mocha";
-        };
+        #settings = {
+        #color_theme = "catppuccin-mocha";
+        #};
       };
       xdg.configFile."btop/themes/catppuccin-mocha.theme".text = ''
         # Main background, empty for terminal default, need to be empty if you want transparent background
