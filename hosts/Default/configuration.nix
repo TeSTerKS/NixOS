@@ -26,7 +26,7 @@
     ../../modules/desktop/hyprland # Enable hyprland window manager
     # ../../modules/desktop/i3-gaps # Enable i3 window manager
 
-    #../../modules/programs/games
+    ../../modules/programs/games
     ../../modules/programs/browser/${browser} # Set browser defined in flake.nix
     ../../modules/programs/terminal/${terminal} # Set terminal defined in flake.nix
     ../../modules/programs/editor/${editor} # Set editor defined in flake.nix
@@ -43,7 +43,7 @@
     ../../modules/programs/shell/zsh
     #../../modules/programs/misc/nh
     #../../modules/programs/media/discord
-    ../../modules/programs/media/spicetify
+    #../../modules/programs/media/spicetify
     ../../modules/programs/media/youtube-music
     #../../modules/programs/media/thunderbird
     ../../modules/programs/media/obs-studio

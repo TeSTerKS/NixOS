@@ -71,6 +71,9 @@
             pavucontrol
             playerctl
             waybar
+            wayvnc
+            clinfo
+            gpu-viewer
             wtype
             wl-clipboard
             xdotool
