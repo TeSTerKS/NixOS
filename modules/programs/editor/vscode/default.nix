@@ -21,7 +21,7 @@
             yzhang.markdown-all-in-one
             catppuccin.catppuccin-vsc
             catppuccin.catppuccin-vsc-icons
-            asvetliakov.vscode-neovim
+            #asvetliakov.vscode-neovim
             #vscodevim.vim
             tamasfe.even-better-toml
             jnoortheen.nix-ide

@@ -259,8 +259,8 @@
               };
               xwayland.force_zero_scaling = false;
               gestures = {
-                workspace_swipe = true;
-                workspace_swipe_fingers = 3;
+                #workspace_swipe = true;
+                #workspace_swipe_fingers = 3;
               };
               dwindle = {
                 pseudotile = true;
