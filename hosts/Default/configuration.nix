@@ -55,6 +55,7 @@
     #../../modules/programs/misc/virt-manager
     ../../modules/programs/editor/libreoffice-fresh
     ../../modules/programs/editor/mupdf
+    #../../modules/programs/misc/ollama
     ../../modules/programs/misc/gc
   ];
 
@@ -76,6 +77,7 @@
         hunspellDicts.en-us # Английский словарь
         # Для тестирования работы видеокарты
         mesa-demos
+        qbittorrent
       ];
     })
   ];
